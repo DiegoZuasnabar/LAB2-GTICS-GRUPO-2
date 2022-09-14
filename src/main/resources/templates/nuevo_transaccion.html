@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Nueva Transaccion</title>
+  </head>
+  <body>
+    <main>
+      <div class="container px-4 py-5">
+        <h1 class="pb-2 mb-3 border-bottom">Nueva Transaccion</h1>
+        <form method="post" th:action="@{'/product/save'}" class="mt-2">
+          <div class="mb-3">
+            <label for="productname" class="form-label">Descripcion de la Tx</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label">TxID</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label">Cantidad</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label">Comision</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label"># Bloque</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label">Estado</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="form-label">Billetera</label>
+            <input type="text" class="form-control" name="productname" id="productname">
+          </div>
+
+
+
+
+
+
+
+
+
+          <a th:href="@{'/product'}" class="btn btn-danger">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+      </div>
+    </main>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+  </body>
+</html>
