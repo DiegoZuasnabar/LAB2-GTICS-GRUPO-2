@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Transacciones</title>
+  </head>
+  <body>
+    <main>
+      <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Transacciones</h1>
+
+        <button class="btn btn-outline-primary" th:href="@{}">Nueva Transaccion</button>
+
+
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>TxID</th>
+              <th>Cantidad Comprada</th>
+              <th>Tarifa de Red</th>
+              <th># Bloque </th>
+              <th>Criptomoneda</th>
+              <th>Status</th>
+              <th>Wallet</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="product, info : ${listaProductos}">
+              <td th:text="${info.index + 1}"></td>
+              <td th:text="${product.productname}"></td>
+              <td th:text="${product.category.getCategoryname()}"></td>
+              <td th:text="${product.supplier.getCompanyname()}"></td>
+              <td th:text="${product.unitprice}"></td>
+              <td th:text="${product.unitsinstock}"></td>
+              <td th:text="${product.discontinued?'si':'no'}"></td>
+              <td><a class="btn btn-primary"
+                     th:href="@{'/product/edit' + '?id=' + ${product.id}}">Editar</a>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+  </body>
+</html>
