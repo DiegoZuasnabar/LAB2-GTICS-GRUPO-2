@@ -20,9 +20,9 @@
           <div class="mb-3">
             <label for="currency" class="form-label">Criptomoneda</label>
             <select type="text" class="form-select" name="currency" id="currency">
-              <option th:each="supplier : ${listaCripto}"
+              <option th:each="currency : ${listaCurrency}"
                       th:text="${currency.name}"
-                      th:value="${currency.id}"></option>
+                      th:value="${currency.idcurrency}"></option>
             </select>
           </div>
           <div class="mb-3">
@@ -43,14 +43,23 @@
           </div>
           <div class="mb-3">
             <label for="status" class="form-label">Estado</label>
-            <input type="text" class="form-control" name="status" id="status">
+
+            <select type="text" class="form-control" name="status" id="status">
+              <option value="Success" selected>Success</option>
+              <option value="Failed" >Failed</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Billetera</label>
-            <input type="text" class="form-control" name="address" id="address">
+            <select type="text" class="form-control" name="address" id="address">
+              <option th:each="wallet : ${listaWallet}"
+                      th:text="${wallet.address}"
+                      th:value="${wallet.id}">
+              </option>
+            </select>
           </div>
 
-          <a th:href="@{'/transaction/list'}" class="btn btn-danger">Cancelar</a>
+          <a th:href="@{'/transaction/'}" class="btn btn-danger">Cancelar</a>
           <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
       </div>
