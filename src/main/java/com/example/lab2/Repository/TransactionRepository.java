@@ -14,4 +14,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     @Query(value="select * from transaction;",nativeQuery = true)
     List<Transaction> obtenerTransactions();
 
+    @Query(value="select * from transaction WHERE tx_id= ?1",nativeQuery = true)
+    List<Transaction> obtenerTransactionsxTxID(String tx_id);
+
 }
