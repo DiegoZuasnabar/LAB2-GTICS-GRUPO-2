@@ -1,7 +1,9 @@
 package com.example.lab2.Controller;
 
 
+import com.example.lab2.Entity.Currency;
 import com.example.lab2.Entity.User;
+import com.example.lab2.Repository.CurrencyRepository;
 import com.example.lab2.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ public class Login {
     @Autowired
     UserRepository usuarioRepository;
 
+    @Autowired
+    CurrencyRepository currencyRepository;
 
     @GetMapping("/ingreso")
     public String pregunta1(){
@@ -28,7 +32,7 @@ public class Login {
     }
 
     @PostMapping("/inicio")
-    public String ingreso(@RequestParam("correo") String correo, @RequestParam("contrasena") String contra ) {
+    public String ingreso(@RequestParam("correo") String correo, @RequestParam("contrasena") String contra, Model model ) {
 
         List<User> userList = usuarioRepository.buscarporUsername(correo);
 
@@ -36,6 +40,8 @@ public class Login {
             return "redirect:/lab2/ingreso";
         }else{
             if(userList.get(0).getEmail().equals(correo) && userList.get(0).getPassword().equals(contra)){
+                List<Currency> currency = currencyRepository.findAll();
+                model.addAttribute("currency",currency);
                 return "principal";
             }else{
                 return "redirect:/lab2/ingreso";

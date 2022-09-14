@@ -20,7 +20,7 @@
         <form action="/buscarCripto" method="post">
         <div class="row mt-4">
             <div class="col-2">
-                <img th:src="@{/logo.png}" alt="Logo" height="150"/>
+                <img th:src="@{/imagenes/logo.png}" alt="Logo" height="150"/>
             </div>
             <div class="col-1 mt-5">
                 <ul class="navbar-nav mb-2 mb-lg-0">
@@ -60,16 +60,20 @@
         </div>
 
         <div class="row" th:class="row">
-                <div class="col-sm-6 mt-4 ml-2 mb-4" >
+                <div class="col-sm-6 mt-4 ml-2 mb-4" th:each=" cripto : ${currency}" >
                     <div class="card text-center border-white bg-transparent">
                         <div class="card-body">
-                            <h5 class="card-title" ></h5>
-                            <p class="card-text" ></p>
-                            <p class="card-text" ></p>
-                            <p class="text-success h3"></p>
+                            <h5 class="card-title" th:text="${cripto.name} + ' (' + ${cripto.abbreviation.toUpperCase()} + ')'"></h5>
+
+                            <p class="card-text" th:text="'Red: ' + ${cripto.network}"  ></p>
+
+                            <p class="card-text" th:text="${cripto.description}" ></p>
+
+                            <p class="text-success h3" th:text="${cripto.price} + ' (BUSD)'"></p>
                         </div>
                     </div>
                 </div>
+
           </div>
     </div>
 </body>
