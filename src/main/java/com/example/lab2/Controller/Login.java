@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/lab2")
+@RequestMapping(value = {"","/lab2"})
 public class Login {
 
     @Autowired

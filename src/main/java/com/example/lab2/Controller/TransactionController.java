@@ -23,17 +23,17 @@ public class TransactionController {
     @Autowired
     CurrencyRepository currencyRepository;
 
-    @GetMapping(value = {"", "/"})
+    @GetMapping(value = {""})
     public String listaTransaction(Model model) {
-        model.addAttribute("listaTransaction", transactionRepository.findAll());
-        return "transaction/lista_transaccion";
+        model.addAttribute("listaTransaction", transactionRepository.obtenerTransactions());
+        return "lista_todas_trans";
     }
 
     @GetMapping("/new")
     public String nuevoTransaction(Model model) {
         model.addAttribute("listaWallet", walletRepository.findAll());
         model.addAttribute("listaCurrency", currencyRepository.findAll());
-        return "transaction/nuevo_transaccion";
+        return "nuevo_transaccion";
     }
 
     @PostMapping("/save")
@@ -41,5 +41,6 @@ public class TransactionController {
         transactionRepository.save(transaction);
         return "redirect:/transaction";
     }
+
 
 }

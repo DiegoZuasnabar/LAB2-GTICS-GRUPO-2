@@ -27,11 +27,11 @@ public class Transaction {
     @Column(name = "status")
     private String status;
     @ManyToOne
-    @JoinColumn(name="iduser")
-    private User user_id;
+    @JoinColumn(name="user_iduser")
+    private User user;
     @ManyToOne
-    @JoinColumn(name="idwallet")
-    private Wallet wallet_from;
+    @JoinColumn(name="wallet_from")
+    private Wallet wallet;
     @Column(name = "currency")
     private String currency;
 
