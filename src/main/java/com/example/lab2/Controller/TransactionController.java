@@ -1,10 +1,8 @@
 package com.example.lab2.Controller;
 
 import com.example.lab2.Entity.Transaction;
-import com.example.lab2.Repository.CurrencyRepository;
-import com.example.lab2.Repository.TransactionRepository;
-import com.example.lab2.Repository.UserRepository;
-import com.example.lab2.Repository.WalletRepository;
+import com.example.lab2.Entity.WalletHasCurrency;
+import com.example.lab2.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +24,8 @@ public class TransactionController {
     @Autowired
     CurrencyRepository currencyRepository;
 
+    @Autowired
+    WalletXCurrencyRepository walletXCurrencyRepository;
     @GetMapping(value = {""})
     public String listaTransaction(Model model) {
         model.addAttribute("listaTransaction", transactionRepository.obtenerTransactions());
@@ -56,5 +56,12 @@ public class TransactionController {
         return "lista_transacciones";
     }
 
+    @GetMapping(value = {"/mi_billetera"})
+    public String listar_billetera(Model model) {
 
+
+        model.addAttribute("billeteraList", walletXCurrencyRepository.findAll());
+
+        return "mi_billetera";
+    }
 }

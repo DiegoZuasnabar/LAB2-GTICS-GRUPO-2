@@ -24,11 +24,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr th:each="product, info : ${listaProductos}">
-              <td th:text="${info.index + 1}"></td>
-              <td th:text="${product.productname}"></td>
-              <td th:text="${product.category.getCategoryname()}"></td>
-              <td th:text="${product.supplier.getCompanyname()}"></td>
+            <tr th:each="bill : ${billeteraList}">
+              <td th:text="${bill.getWallet_idwallet()}"></td>
+              <td th:text="${bill.get}"></td>
+              <td th:text="${}"></td>
+              <td th:text="${}"></td>
 
 
             </tr>

@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="e90a40c5-f84e-47ba-9200-7328bca1c448" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/example/lab2/Entity" />
   </component>
 </project>
